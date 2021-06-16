@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: caller
-          image: quay.io/kiddlin/caller
+          image: "quay.io/min_ji_gz_ibm/cloudnative/squad5
           ports:
             - containerPort: 80
               protocol: TCP
