@@ -14,16 +14,15 @@ spec:
     spec:
       containers:
         - name: caller
-          image: "quay.io/min_ji_gz_ibm/cloudnative/squad5
+          image: quay.io/min_ji_gz_ibm/cloudnative/squad5
           ports:
-            - containerPort: 80
+            - containerPort: 8080
+              name: http
               protocol: TCP
-          # env:
-          #   - name: NAME
-          #     value: VALUE
           imagePullPolicy: Always
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 3
+          resources: {}
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
