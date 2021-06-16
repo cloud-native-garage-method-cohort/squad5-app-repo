@@ -12,7 +12,7 @@ def index():
 
 @app.route('/getMember', methods=["GET"])
 def getMember():
-    r = requests.post('http://192.168.1.4:80/search',
+    r = requests.post('http://recorder:80/search',
                       data=json.loads(json.dumps(request.form, ensure_ascii=False)))
     return r.text
 
