@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: caller
+spec:
+  selector:
+    matchLabels:
+      app: caller
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: caller
+    spec:
+      containers:
+        - name: caller
+          image: quay.io/kiddlin/caller
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          # env:
+          #   - name: NAME
+          #     value: VALUE
+          imagePullPolicy: Always
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 3
